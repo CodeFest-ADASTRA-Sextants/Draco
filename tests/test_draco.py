@@ -1,5 +1,6 @@
-from draco import utils
+from draco import compress, transform
 import rasterio
+import os
 
 def test_translation():
     '''
@@ -20,7 +21,7 @@ def test_translation():
     x_offset = 100
     y_offset = 100
     rotation = 45
-    utils.translate_and_rotate_geoimg(input_file, output_file, x_offset, y_offset, rotation)
+    transform.translate_and_rotate_geoimg(input_file, output_file, x_offset, y_offset, rotation)
     with rasterio.open(input_file) as src:
         with rasterio.open(output_file) as dst:
             assert src.count == dst.count
@@ -29,3 +30,19 @@ def test_translation():
             assert src.width == dst.width
             assert src.height == dst.height
             assert src.transform * rasterio.Affine.translation(x_offset, y_offset) * rasterio.Affine.rotation(rotation) == dst.transform
+
+
+def test_compress():
+    '''
+        Test compress_image function
+    '''
+    # Arrange
+    image_path = 'tests/data/rgb.tif'
+    output_path = 'tests/data/rgb.compressed.tif'
+    # Act
+    compress.compress_image(image_path, output_path)
+    # Assert
+    assert os.path.exists(output_path)
+    assert os.path.getsize(output_path) < os.path.getsize(image_path)
+    # Cleanup
+    os.remove(output_path)

@@ -1,5 +1,7 @@
 import rasterio
 
+from draco.compress import compress_image
+
 def translate_and_rotate_geoimg(input_file, output_file, x_offset=0, y_offset=0, rotation=0):
     '''
         Given the georeferenced image at [input_file], translate and rotate the image by [x_offset], [y_offset], and [rotation] respectively.
@@ -17,6 +19,7 @@ def translate_and_rotate_geoimg(input_file, output_file, x_offset=0, y_offset=0,
         kwargs.update({'transform': transform})
 
         write_to_file(output_file, kwargs, src)
+        compress_image(output_file, output_file + '.compressed.tif')
 
 def inverse(input_file, output_file, x_offset=0, y_offset=0, rotation=0):
     '''
