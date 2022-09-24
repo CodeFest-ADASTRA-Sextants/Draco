@@ -21,7 +21,7 @@ The wheel file will be stored in ./dist.
 
 # Install the library
 
-pip install /path/to/wheelfile.whl
+`pip install <path to wheelfile>.whl`
 
 
 # Use the library
