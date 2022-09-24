@@ -8,6 +8,7 @@ setup(
     license='MIT',
     install_requires=[
         'numpy',
+        'gdal',
         'rasterio'
     ],
     setup_requires=['pytest-runner'],
