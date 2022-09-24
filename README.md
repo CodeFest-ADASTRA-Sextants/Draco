@@ -1,4 +1,4 @@
-# Draco
+# Draco library for aereal and geospatial images
 
 This open source library makes the translation and rotation of georeferenced images easy and lossly compression for image pre-visualization supporting multiple data types, especially made for TIFF, the most importante data type for storing rasters. 
 
@@ -10,18 +10,18 @@ Currently, the compatible formats are:
 ## Run tests
 To run tests execute the following command:
 
-python setup.py pytest
+`python setup.py pytest`
 
 ## Build Wheel
 To build the Wheel run:
 
-python setup.py bdist_wheel
+`python setup.py bdist_wheel`
 
 The wheel file will be stored in ./dist.
 
 # Install the library
 
-pip install /path/to/wheelfile.whl
+`pip install <path to wheelfile>.whl`
 
 
 # Use the library
