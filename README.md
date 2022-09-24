@@ -48,7 +48,7 @@ transform.translate_and_rotate_geoimg(input_file, output_file, x_offset, y_offse
 
 # Recover image from translation and rotation.
 # This produces a new file at the specified location
-transform.invert(output_file, restore_file, x_offset, y_offset, rotation)
+transform.inverse(output_file, restore_file, x_offset, y_offset, rotation)
 
 ```
 
